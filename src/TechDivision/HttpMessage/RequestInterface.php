@@ -30,6 +30,7 @@ namespace TechDivision\HttpMessage;
  */
 interface RequestInterface extends MessageInterface
 {
+
     /**
      * Gets the HTTP method of the request.
      *
@@ -52,25 +53,18 @@ interface RequestInterface extends MessageInterface
     public function setMethod($method);
 
     /**
-     * Gets the absolute request URL.
+     * Sets requested URI.
      *
-     * @return string Returns the URL as a string.
-     */
-    public function getUrl();
-
-    /**
-     * Sets the request URL.
-     *
-     * The URL MUST be a string, or an object that implements the
-     * `__toString()` method. The URL must be an absolute URI as specified
-     * in RFC 3986.
-     *
-     * @param string $url Request URL.
+     * @param string $uri The requested uri to set
      *
      * @return void
-     *
-     * @throws \InvalidArgumentException If the URL is invalid.
-     * @link http://tools.ietf.org/html/rfc3986#section-4.3
      */
-    public function setUrl($url);
+    public function setUri($uri);
+
+    /**
+     * Returns requested URI.
+     *
+     * @return string
+     */
+    public function getUri();
 }

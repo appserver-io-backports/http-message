@@ -49,5 +49,5 @@ interface ResponseInterface extends MessageInterface
      *
      * @return string|null Reason phrase, or null if unknown.
      */
-    public function getReasonPhrase();
+    public function getStatusReasonPhrase();
 }
