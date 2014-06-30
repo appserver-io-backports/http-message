@@ -37,28 +37,23 @@ interface MessageInterface
      *
      * @return string HTTP protocol version.
      */
-    public function getProtocolVersion();
+    public function getVersion();
 
     /**
-     * Gets the body of the message.
+     * Returns the stream resource pointing to body content
      *
-     * @return StreamInterface|null Returns the body, or null if not set.
-    */
-    public function getBody();
+     * @return resource The body content stream resource
+     */
+    public function getBodyStream();
 
     /**
-     * Sets the body of the message.
+     * Resets the stream resource pointing to body content
      *
-     * The body MUST be a StreamInterface object. Setting the body to null MUST
-     * remove the existing body.
-     *
-     * @param StreamInterface|null $body Body.
+     * @param resource $bodyStream The body content stream resource
      *
      * @return void
-     *
-     * @throws \InvalidArgumentException When the body is not valid.
-    */
-    public function setBody(StreamInterface $body = null);
+     */
+    public function setBodyStream($bodyStream);
 
     /**
      * Gets all message headers.
@@ -100,29 +95,6 @@ interface MessageInterface
     public function getHeader($header);
 
     /**
-     * Retrieve a header by the given case-insensitive name as an array of
-     * strings.
-     *
-     * @param string $header Case-insensitive header name.
-     *
-     * @return array
-    */
-    public function getHeaderAsArray($header);
-
-    /**
-     * Sets a header, replacing any existing values of any headers with the
-     * same case-insensitive name.
-     *
-     * The header values MUST be a string or an array of strings.
-     *
-     * @param string       $header Header name
-     * @param string|array $value  Header value(s)
-     *
-     * @return void
-    */
-    public function setHeader($header, $value);
-
-    /**
      * Sets headers, replacing any headers that have already been set on the
      * message.
      *
@@ -145,28 +117,4 @@ interface MessageInterface
      * @return void
     */
     public function addHeader($header, $value);
-
-    /**
-     * Merges in an associative array of headers.
-     *
-     * Each array key MUST be a string representing the case-insensitive name
-     * of a header. Each value MUST be either a string or an array of strings.
-     * For each value, the value is appended to any existing header of the same
-     * name, or, if a header does not already exist by the given name, then the
-     * header is added.
-     *
-     * @param array $headers Associative array of headers to add to the message
-     *
-     * @return void
-    */
-    public function addHeaders(array $headers);
-
-    /**
-     * Remove a specific header by case-insensitive name.
-     *
-     * @param string $header HTTP header to remove
-     *
-     * @return void
-    */
-    public function removeHeader($header);
 }

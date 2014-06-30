@@ -140,6 +140,7 @@ interface StreamInterface
      *
      * @param int $maxLength The maximum bytes to read. Defaults to -1 (read
      *                       all the remaining buffer).
+     *
      * @return string
      */
     public function getContents($maxLength = -1);
