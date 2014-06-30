@@ -1,0 +1,28 @@
+{
+    "name": "techdivision/httpmessage",
+    "description": "Dummy package containing some interface for HTTP messaging while PSR-7 is in proposal state",
+    "homepage": "https://github.com/techdivision/TechDivision_HttpMessage",
+    "keywords": ["php", "http", "httpmessage", "server", "protocol"],
+    "license": ["OSL-3.0"],
+    "authors": [
+        {
+            "name": "Tim Wagner",
+            "email": "tw@techdivision.com",
+            "homepage": "http://www.techdivision.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "TechDivision": [ "src/" ]
+        }
+    },
+    "config":{
+        "github-oauth":{
+            "github.com":"604a3b5943228e434a5b52c2ba3cf72286d30db9"
+        }
+    }
+}
